@@ -56,6 +56,29 @@ Generates a UUID for an authorizable node by deriving it from the authorizable I
 {{oakAuthorizableUuid authorizableId}}
 ```
 
+### url
+
+Generates or manipulates URLs.
+
+#### Example 1:
+
+```
+{{url "localhost" port=8080 scheme="http" path="/custom/path" query="param1=value1&param2=value2" fragment="deeplink"}}
+```
+**Result:**
+```
+http://localhost:8080/custom/path?param1=value1&param2=value2#deeplink
+```
+
+#### Example 2:
+
+```
+{{url "https://localhost/custom/path?param1=value1&param2=value2#deeplink" port=8443 path="" query="" fragment="" }}
+```
+**Result:**
+```
+https://localhost:8443
+```
 
 ### webconsolePasswordHash
 
