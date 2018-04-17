@@ -84,4 +84,14 @@ public class ChainHelperTest {
     assertEquals("{sha-256}9iFcpJv7gpP9ooMXpwiM4dvKnItIZTivYfs8oiv4qFw=", chainedResult);
   }
 
+  @Test
+  public void testChainingWithSpaces() throws Exception {
+    MockOptions mockOptions = new MockOptions()
+      .withHash(HttpHostHelper.HASH_OPTION_PORT, 8081)
+      .withHash(ChainHelper.HASH_OPTION_HELPERS, "  httpHost ,  webconsolePasswordHash ");
+    Object chainedResult = executeHelper(helper, "local.host", mockOptions, pluginContext);
+    // hashed representation of "local.host:8081"
+    assertEquals("{sha-256}9iFcpJv7gpP9ooMXpwiM4dvKnItIZTivYfs8oiv4qFw=", chainedResult);
+  }
+
 }

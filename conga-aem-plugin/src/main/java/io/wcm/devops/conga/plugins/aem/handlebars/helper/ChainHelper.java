@@ -41,6 +41,7 @@ public class ChainHelper implements HelperPlugin<Object> {
 
     String[] helperNames = helperStr.split(",");
     for (String helperName : helperNames) {
+      helperName = helperName.trim();
       if (helperName != "") {
         HelperPlugin helperPlugin = pluginContext.getPluginManager().get(helperName, HelperPlugin.class);
         helperPlugins.add(helperPlugin);
