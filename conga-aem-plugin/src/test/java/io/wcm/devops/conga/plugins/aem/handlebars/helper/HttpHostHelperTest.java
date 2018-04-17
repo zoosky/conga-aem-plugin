@@ -17,10 +17,12 @@
  * limitations under the License.
  * #L%
  */
+
 package io.wcm.devops.conga.plugins.aem.handlebars.helper;
 
 import io.wcm.devops.conga.generator.spi.handlebars.HelperPlugin;
 import io.wcm.devops.conga.generator.util.PluginManagerImpl;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,14 +31,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-public class HttpHostSslTest {
+public class HttpHostHelperTest {
 
   private HelperPlugin<Object> helper;
 
   @SuppressWarnings("unchecked")
   @Before
   public void setUp() {
-    helper = new PluginManagerImpl().get(HttpHostSsl.NAME, HelperPlugin.class);
+    helper = new PluginManagerImpl().get(HttpHostHelper.NAME, HelperPlugin.class);
   }
 
   @Test
@@ -47,9 +49,9 @@ public class HttpHostSslTest {
 
   @Test
   public void testContextWithPort() throws Exception {
-    Object httpHost = executeHelper(helper, "localhost:8443", new MockOptions());
+    Object httpHost = executeHelper(helper, "localhost:8080", new MockOptions());
     assertTrue(httpHost instanceof String);
-    assertEquals("localhost:8443", httpHost);
+    assertEquals("localhost:8080", httpHost);
   }
 
   @Test
@@ -61,14 +63,14 @@ public class HttpHostSslTest {
 
   @Test
   public void testWithCustomPort() throws Exception {
-    Object httpHost = executeHelper(helper, "localhost", new MockOptions().withHash(HttpHostSsl.HASH_OPTION_PORT, 9443));
+    Object httpHost = executeHelper(helper, "localhost", new MockOptions().withHash(HttpHostHelper.HASH_OPTION_PORT, 8081));
     assertTrue(httpHost instanceof String);
-    assertEquals("localhost:9443", httpHost);
+    assertEquals("localhost:8081", httpHost);
   }
 
   @Test
   public void testWithDefaultPort() throws Exception {
-    Object httpHost = executeHelper(helper, "localhost", new MockOptions().withHash(HttpHostSsl.HASH_OPTION_PORT, HttpHostSsl.DEFAULT_PORT));
+    Object httpHost = executeHelper(helper, "localhost", new MockOptions().withHash(HttpHostHelper.HASH_OPTION_PORT, HttpHostHelper.DEFAULT_PORT));
     assertTrue(httpHost instanceof String);
     assertEquals("localhost", httpHost);
   }

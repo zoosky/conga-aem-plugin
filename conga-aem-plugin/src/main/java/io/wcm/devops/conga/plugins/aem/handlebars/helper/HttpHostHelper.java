@@ -28,17 +28,17 @@ import java.io.IOException;
 /**
  * Handlebars helper that adds a port to the host when it is not the default one
  */
-public class HttpHostSsl extends AbstractHost implements HelperPlugin<Object> {
+public class HttpHostHelper extends AbstractHostHelper implements HelperPlugin<Object> {
 
   /**
    * Plugin/Helper name
    */
-  public static final String NAME = "httpHostSsl";
+  public static final String NAME = "httpHost";
 
   /**
    * Plugin/Helper name
    */
-  public static final Integer DEFAULT_PORT = 443;
+  public static final Integer DEFAULT_PORT = 80;
 
 
   @Override

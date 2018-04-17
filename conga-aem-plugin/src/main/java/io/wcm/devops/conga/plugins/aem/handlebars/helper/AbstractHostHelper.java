@@ -5,7 +5,7 @@ import com.github.jknack.handlebars.Options;
 /**
  * Abstract base class for host helpers
  */
-abstract class AbstractHost {
+abstract class AbstractHostHelper {
 
   /**
    * Option for setting port
