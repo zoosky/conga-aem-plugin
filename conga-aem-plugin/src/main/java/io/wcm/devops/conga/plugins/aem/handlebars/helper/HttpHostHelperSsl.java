@@ -19,11 +19,12 @@
  */
 package io.wcm.devops.conga.plugins.aem.handlebars.helper;
 
+import java.io.IOException;
+
 import com.github.jknack.handlebars.Options;
+
 import io.wcm.devops.conga.generator.spi.handlebars.HelperPlugin;
 import io.wcm.devops.conga.generator.spi.handlebars.context.HelperContext;
-
-import java.io.IOException;
 
 /**
  * Handlebars helper that adds a port to the host when it is not the default one
