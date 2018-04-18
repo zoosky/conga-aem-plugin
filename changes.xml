@@ -25,7 +25,10 @@
 
     <release version="1.7.2" date="not released">
       <action type="add" dev="trichter">
-        Add handlebars helper url to build and manipulate URLs.
+        Add handlebars helper chain to allow chaining of 1 to n handlebar helpers .
+      </action>
+      <action type="add" dev="trichter">
+        Add handlebars helper httpHost and httpHostSsl in order to support non standard http ports in conga-aem-definitions.
       </action>
     </release>
 
